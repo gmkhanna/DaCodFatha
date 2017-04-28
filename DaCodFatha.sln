@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{509614B4-4A4E-4AF1-B3D6-D4EC7580CCD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5206BBA6-B56B-45B8-9B41-0FE87D986BEE}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DaCodFatha", "src\DaCodFatha\DaCodFatha.xproj", "{B63DD8B7-131D-4C04-88E0-F71ED789ACB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B63DD8B7-131D-4C04-88E0-F71ED789ACB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B63DD8B7-131D-4C04-88E0-F71ED789ACB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B63DD8B7-131D-4C04-88E0-F71ED789ACB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B63DD8B7-131D-4C04-88E0-F71ED789ACB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B63DD8B7-131D-4C04-88E0-F71ED789ACB6} = {509614B4-4A4E-4AF1-B3D6-D4EC7580CCD6}
+	EndGlobalSection
+EndGlobal
