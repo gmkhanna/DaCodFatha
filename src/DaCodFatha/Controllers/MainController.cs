@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using DaCodFatha.Models;
 using Microsoft.AspNetCore.Identity;
 using DaCodFatha.ViewModels;
+using System.Security.Claims;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -42,6 +43,57 @@ namespace DaCodFatha.Controllers
             return View();
         }
 
+        //Post - AUTHENTICATED ADMIN CREATE func
+        [HttpPost]
+        public async Task<IActionResult> Create(Product product)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            product.User = currentUser;
+            _db.Products.Add(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //Get - AUTHENTICATED ADMIN EDIT func
+        public IActionResult EDIT(int id)
+        {
+            var thisProd = _db.Products.FirstOrDefault(p => p.Id == id);
+            return View(thisProd);
+        }
+
+        //Post - AUTHENTICATED ADMIN EDIT func
+        [HttpPost]
+        public async Task<IActionResult> EDIT(Product product)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            product.User = currentUser;
+            _db.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("ProdAdmin", "Main");
+        }
+
+        //Get - AUTHENTICATED ADMIN DELETE func
+        public IActionResult Delete(int id)
+        {
+            var thisProd = _db.Products.FirstOrDefault(p => p.Id == id);
+            return View(thisProd);
+        }
+
+        //Post - AUTHENTICATED ADMIN DELETE func
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            //product.User = currentUser;
+            var thisProd = _db.Products.FirstOrDefault(p => p.Id == id);
+            _db.Products.Remove(thisProd);
+            _db.SaveChanges();
+            return RedirectToAction("ProdAdmin", "Main");
+        }
+
         // Get - NON - Authenticated Newsletter Page
         public IActionResult Newsletter()
         {
@@ -64,7 +116,7 @@ namespace DaCodFatha.Controllers
 
         // Post - LogOff
         [HttpPost]
-        public async Task<IActionResult> LogoOff()
+        public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
