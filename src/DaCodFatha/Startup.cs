@@ -52,8 +52,10 @@ namespace DaCodFatha
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Index}/{id?}");
+                    template: "{controller=Main}/{action=Index}/{id?}");
             });
+
+            app.UseStaticFiles();
 
             app.Run(async (context) =>
             {

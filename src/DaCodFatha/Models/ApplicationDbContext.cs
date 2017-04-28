@@ -13,5 +13,11 @@ namespace DaCodFatha.Models
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
+        public DbSet<Product> Products { get; set; }
     }
 }

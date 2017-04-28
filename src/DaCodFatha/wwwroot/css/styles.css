@@ -1,0 +1,9 @@
+﻿body {
+}
+
+
+.HeroMain {
+    max-width: 100%;
+    min-height: 383px;
+    outline: red 5px solid;
+}

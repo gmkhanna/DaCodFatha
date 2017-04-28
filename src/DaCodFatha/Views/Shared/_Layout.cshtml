@@ -3,9 +3,57 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />    <title>@ViewBag.Title</title>
 </head>
 <body>
+
+@using System.Security.Claims
+
+    <div class="nav-auth">
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">LOGO HERE~!</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      @if (User.Identity.IsAuthenticated)
+      { 
+      <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Product Line", "Product", "Main")</li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> @User.Identity.Name, Give me a Hug!<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Newsletter List", "Newsletter", "Main")</li>
+            <li>@Html.ActionLink("Register Family", "Register", "Account")</li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      }
+      else
+      {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Products", "Product", "Main")</li>
+                    <li>@Html.ActionLink("Newsletter", "Newsletter", "Main")</li>
+                    <li>@Html.ActionLink("Admin Log In", "Login", "Account")</li>
+             <li>Welcome, <em>Cod Fatha Visitor</em></li>
+        </ul>
+      }
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+      
     <div>
         @RenderBody()
     </div>
