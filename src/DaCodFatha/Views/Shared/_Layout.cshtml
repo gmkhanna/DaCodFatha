@@ -15,12 +15,9 @@
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-      <a class="navbar-brand" href="#">LOGO HERE~!</a>
-    </div>
+      <div class="navbar-header">
+          <h3 class="navbar-brand">@Html.ActionLink("LogoHERE~!", "Index", "Main")</h3>
+      </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,17 +25,17 @@
       @if (User.Identity.IsAuthenticated)
       { 
       <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Product Line", "Product", "Main")</li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> @User.Identity.Name, Give me a Hug!<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>@Html.ActionLink("Newsletter List", "Newsletter", "Main")</li>
-            <li>@Html.ActionLink("Register Family", "Register", "Account")</li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+        <li>@Html.ActionLink("Product Line", "ProdAdmin", "Main")</li>
+          <li>@Html.ActionLink("Newsletter List", "NewsAdmin", "Main")</li>
+            <li>@Html.ActionLink("Register New", "Register", "Account")</li>
+          <li>@Html.ActionLink("Admin", "Index", "Account")</li>
+          <li>@User.Identity.Name, Cod Fatha Mafia</li>
+          
+          @using (Html.BeginForm("LogOff", "Account"))
+          {
+              <li><input type="submit" value="Log Out" class="btn btn-default" /></li>
+          }
           </ul>
-        </li>
-      </ul>
       }
       else
       {
@@ -46,7 +43,8 @@
             <li>@Html.ActionLink("Products", "Product", "Main")</li>
                     <li>@Html.ActionLink("Newsletter", "Newsletter", "Main")</li>
                     <li>@Html.ActionLink("Admin Log In", "Login", "Account")</li>
-             <li>Welcome, <em>Cod Fatha Visitor</em></li>
+            <li><span><h3>@Html.ActionLink("Register", "Register", "Account")</h3></span></li>
+             <li><em>Cod Fatha Visitor</em></li>
         </ul>
       }
     </div><!-- /.navbar-collapse -->

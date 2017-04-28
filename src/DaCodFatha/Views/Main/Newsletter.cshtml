@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Da Cod Fatha - Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model DaCodFatha.Models.Newsletter
+
+    <h2>Be apart of Da Cod Fatha Family and get on our newsletter</h2>
+    <h4>You will learn about our new deals, family dinners, and mafia meetings. Fuggetabboutit! We won't spam you.</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(m => m.Email)
+        @Html.EditorFor(m => m.Email)
+
+        @Html.LabelFor(m => m.FavFish)
+        @Html.EditorFor(m => m.FavFish)
+
+        <input type="submit" value="Subscribe" class="btn btn-default"/>
+    
+}

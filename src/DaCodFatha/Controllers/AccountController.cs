@@ -24,7 +24,6 @@ namespace DaCodFatha.Controllers
             _signInManager = signInManager;
         }
 
-
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -45,7 +44,7 @@ namespace DaCodFatha.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Main");
             }
             else
             {
@@ -60,6 +59,7 @@ namespace DaCodFatha.Controllers
         }
 
         //Post - Login info and route to index page after login
+        [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
@@ -74,7 +74,8 @@ namespace DaCodFatha.Controllers
         }
 
         // Post - LogOff
-        public async Task<IActionResult> LogoOff()
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
