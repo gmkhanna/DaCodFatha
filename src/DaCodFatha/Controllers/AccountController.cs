@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DaCodFatha.Models;
 using Microsoft.AspNetCore.Identity;
-using DaCodFatha.ViewModels.Register;
+using DaCodFatha.Models;
+using DaCodFatha.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
