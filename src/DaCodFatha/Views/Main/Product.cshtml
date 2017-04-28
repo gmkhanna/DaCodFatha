@@ -3,4 +3,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model IEnumerable<DaCodFatha.Models.Product>
+
 <h1>Product page</h1>
+
+@foreach (var listprod in Model)
+{
+    <div class="disp-area">
+        <h3 class="name">@Html.DisplayFor(modelItem => listprod.Name)</h3>
+        <img class="image">@Html.DisplayFor(modelItem => listprod.Image) />
+        <h4 class="desc">@Html.DisplayFor(modelItem => listprod.Desc)</h4>
+
+    </div>
+}

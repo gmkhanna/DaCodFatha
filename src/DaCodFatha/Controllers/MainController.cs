@@ -43,6 +43,12 @@ namespace DaCodFatha.Controllers
             return View();
         }
 
+        //Get - AUTHENTICATED ADMIN CREATE func
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         //Post - AUTHENTICATED ADMIN CREATE func
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
@@ -52,7 +58,7 @@ namespace DaCodFatha.Controllers
             product.User = currentUser;
             _db.Products.Add(product);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ProdAdmin", "Main");
         }
 
         //Get - AUTHENTICATED ADMIN EDIT func
