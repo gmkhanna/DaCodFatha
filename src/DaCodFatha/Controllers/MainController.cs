@@ -34,13 +34,13 @@ namespace DaCodFatha.Controllers
         // Get - NON-Authenticated Product Page
         public IActionResult Product()
         {
-            return View();
+            return View(_db.Products.ToList());
         }
 
         // Get - AUTHENTICATED ADMIN Product Page
         public IActionResult ProdAdmin()
         {
-            return View();
+            return View(_db.Products.ToList());
         }
 
         //Get - AUTHENTICATED ADMIN CREATE func
