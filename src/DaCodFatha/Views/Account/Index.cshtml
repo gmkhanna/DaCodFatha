@@ -3,7 +3,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using System.Security.Claims
+
 <h2>Identity Authentication</h2>
 <hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>Like I Said, Blood is Thicker than Water.</h4>
+    <h3>You are Family Now <span><strong>@User.Identity.Name!</strong></span></h3>
+    @using (Html.BeginForm("Log Off", "Account"))
+    {
+        <input type="submit" value="Log Out" class="btn btn-default"/>
 
-<h4>@Html.ActionLink("Register", "Register")</h4>
+    }
+}
+else
+{
+    <h3>Hey Small Fry! Say Hello to My Little Friend</h3>
+    <h4>@Html.ActionLink("Register", "Register")</h4>
+    <h4>@Html.ActionLink("Show Us You Are One of Us", "Login")</h4>
+}
