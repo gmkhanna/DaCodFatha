@@ -48,6 +48,14 @@ namespace DaCodFatha.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Newsletter(Newsletter newsletter)
+        {
+            _db.Newsletters.Add(newsletter);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Main");
+        }
+
         //Get - AUTHENTICATED Newsletter for ADMIN Page
         public IActionResult NewsAdmin()
         {

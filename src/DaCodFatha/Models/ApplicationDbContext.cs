@@ -19,5 +19,6 @@ namespace DaCodFatha.Models
         }
 
         public DbSet<Product> Products { get; set; }
+        public virtual DbSet<Newsletter> Newsletters { get; set; }
     }
 }
