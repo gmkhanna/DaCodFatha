@@ -2,3 +2,23 @@
     ViewData["Title"] = "Da Cod Fatha - Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@model DaCodFatha.Models.Product
+
+
+<div class="ed-form">
+    <h2>Edit</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Desc)
+        @Html.EditorFor(model => model.Desc)
+
+        @Html.LabelFor(model => model.Image)
+        @Html.EditorFor(model => model.Image)
+
+        <input type="submit" value="Save" />
+
+    }

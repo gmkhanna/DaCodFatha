@@ -117,7 +117,7 @@ namespace DaCodFatha.Controllers
         //Get - AUTHENTICATED Newsletter for ADMIN Page
         public IActionResult NewsAdmin()
         {
-            return View();
+            return View(_db.Newsletters.ToList());
         }
 
         // Post - LogOff

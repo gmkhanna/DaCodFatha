@@ -7,8 +7,11 @@
 
 @model RegisterViewModel
 
-<h2>Register New Admin</h2>
+<h3>Register New Admin</h3>
 <hr />
+
+<div class="container">
+
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
@@ -24,3 +27,4 @@
     <input type="submit" value="Register Admin" />
 
 }
+</div>

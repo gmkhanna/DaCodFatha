@@ -6,6 +6,7 @@
 @model IEnumerable<DaCodFatha.Models.Product>
 
 
+<div class="container">
 
 <div class="create">
     @Html.ActionLink("Add New Product", "Create", "Main")
@@ -18,7 +19,7 @@
     {
         <div class="disp-area">
             <h3 class="name">@Html.DisplayFor(modelItem => listprod.Name)</h3>
-            <img class="image">@Html.DisplayFor(modelItem => listprod.Image) />
+            <img class="image" src="@Html.DisplayFor(modelItem => listprod.Image)" alt="Da Cod Fatha Feature Product"/>
             <h4 class="desc">@Html.DisplayFor(modelItem => listprod.Desc)</h4>
             @Html.ActionLink("Edit", "Edit", new { id = listprod.Id }) | @Html.ActionLink("Waste'em", "Delete", new { id = listprod.Id })
         </div>
@@ -29,3 +30,4 @@
         <h3>No products listed. Add to Product Line</h3>
     }
 
+</div>

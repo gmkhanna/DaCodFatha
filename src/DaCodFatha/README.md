@@ -33,7 +33,7 @@
 * C# with ASP.Net Core MVC Web Application Core
 * MSSQL
 
-[github link for this project](https://github.com/gmkhanna/GummyKing)
+[github link for this project](https://github.com/gmkhanna/DaCodFatha
 
 ##### Copyright (c) 2017 Grinil Khanna.
 

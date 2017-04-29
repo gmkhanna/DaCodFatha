@@ -2,3 +2,21 @@
     ViewData["Title"] = "Da Cod Fatha - Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@model DaCodFatha.Models.Product
+
+
+<h3>Are you sure you want to turn this fish cold?</h3>
+
+@using (Html.BeginForm())
+{
+    <div class="disp-area">
+        <h3 class="name">@Html.DisplayFor(m => m.Name)</h3>
+        <img class="image" src="@Html.DisplayFor(m => m.Image)" />
+        <h4 class="desc">@Html.DisplayFor(m => m.Desc)</h4>
+    </div>
+
+    <input type="submit" value="ICE'em'" class="btn btn-primary" />
+}
+
+<p>@Html.ActionLink("Index", "Index")</p>
